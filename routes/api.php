@@ -52,6 +52,8 @@ Route::middleware('cors')->group(function () {
 
     Route::get('get/{id}/chapter', [ChapterController::class, 'getChapter'])->name('getChapter');
 
+    Route::get('get/{id}/chapter/detail', [ChapterController::class, 'getChapterDetail'])->name('getChapterDetail');
+
     Route::get('detail/{id}/course', [CategoryController::class, 'getDetailCourse'])->name('getDetailCourse');
 
     Route::get('get/getCategories', [CategoryController::class, 'getCategories'])->name('getCategories');

@@ -164,6 +164,7 @@ class PayBillController extends Controller
                 'tenChuongHoc' => $chapter->tenChuongHoc,
                 'trangThai' => $chapter->trangThai,
                 'giaoVienID' => $chapter->user_id,
+
                 'my_course_id' => $myCourseId,
             ]);
 

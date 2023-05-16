@@ -72,6 +72,12 @@ class ChapterController extends Controller
         return response()->json(['data' => $getChapter]);
     }
 
+    public function getChapterDetail($id)
+    {
+        $getChapterDetail = Chapter::where('id', $id)->first();
+        return response()->json(['data' => $getChapterDetail]);
+    }
+
     /*
     update chapter teacher
      */
