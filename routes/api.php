@@ -4,6 +4,7 @@ use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ChapterController;
 use App\Http\Controllers\API\CommentController;
 use App\Http\Controllers\API\EvaluateController;
+use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\LessonController;
 use App\Http\Controllers\API\LoginRegisterController;
 use App\Http\Controllers\API\PayBillController;
@@ -49,6 +50,7 @@ Route::middleware('cors')->group(function () {
         Route::get('delete/{id}/lesson', [LessonController::class, 'deleteLesson'])->name('deleteLesson');
 
     });
+    Route::get('invoice/{id}/export-pdf', [InvoiceController::class, 'exportPDF'])->name('exportPDF');
 
     Route::get('get/{id}/chapter', [ChapterController::class, 'getChapter'])->name('getChapter');
 
