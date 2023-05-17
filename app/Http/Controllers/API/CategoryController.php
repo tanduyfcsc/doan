@@ -143,7 +143,7 @@ class CategoryController extends Controller
             'moTa' => $request->moTa,
             'linkVideo' => $request->linkVideo,
             'giaCa' => $request->giaCa,
-            'trangThai' => 0,
+            'trangThai' => 1,
             'category_id' => $request->category_id,
             'user_id' => $this->userId->returnUserId(),
         ]);
