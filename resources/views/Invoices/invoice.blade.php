@@ -137,21 +137,21 @@
             <div class="row">
                 <div class="col-6">
                     <h2 class="heading" style="font-family: DejaVu Sans;font-size: 13px">Mã hóa đơn:
-                        {{ $invoice['invoice']->maHoaDon }}</h2>
+                        {{ $invoice->maHoaDon }}</h2>
                     <p class="sub-heading" style="font-family: DejaVu Sans;font-size: 13px">Mã kích hoạt:
-                        {{ $invoice['invoice']->maKichHoat }}
+                        {{ $invoice->maKichHoat }}
                     </p>
                     <p class="sub-heading" style="font-family: DejaVu Sans;font-size: 13px">Ngày mua:
-                        {{ $invoice['invoice']->created_at->format('d/m/Y') }} </p>
+                        {{ $invoice->created_at->format('d/m/Y') }} </p>
                 </div>
                 <div class="col-6">
                     <p class="sub-heading" style="font-family: DejaVu Sans;font-size: 13px">Họ và tên:
-                        {{ $invoice['invoice']->hoTen }} </p>
+                        {{ $invoice->hoTen }} </p>
                     <p class="sub-heading" style="font-family: DejaVu Sans;font-size: 13px">Địa chỉ:
-                        {{ $invoice['invoice']->diaChi }}
+                        {{ $invoice->diaChi }}
                     </p>
                     <p class="sub-heading" style="font-family: DejaVu Sans;font-size: 13px">Số điện thoại:
-                        {{ $invoice['invoice']->soDienThoai }}
+                        {{ $invoice->soDienThoai }}
                     </p>
                 </div>
             </div>
@@ -171,12 +171,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="font-family: DejaVu Sans;font-size: 13px">{{ $invoice['tenKhoaHoc'] }}</td>
+                        <td style="font-family: DejaVu Sans;font-size: 13px">{{ $tenKhoaHoc }}</td>
                         <td style="font-family: DejaVu Sans;font-size: 13px">
-                            {{ number_format(floatval($invoice['giaCa']), 0, ',', '.') }}VNĐ</td>
+                            {{ number_format(floatval($giaCa), 0, ',', '.') }}VNĐ</td>
                         <td style="font-family: DejaVu Sans;font-size: 13px">1</td>
                         <td style="font-family: DejaVu Sans;font-size: 13px">
-                            {{ number_format(floatval($invoice['giaCa']), 0, ',', '.') }}VNĐ</td>
+                            {{ number_format(floatval($giaCa), 0, ',', '.') }}VNĐ</td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right" style="font-family: DejaVu Sans;font-size: 13px">Phí vẫn
@@ -187,7 +187,7 @@
                         <td colspan="3" class="text-right"style="font-family: DejaVu Sans;font-size: 13px">Tổng cộng
                         </td>
                         <td style="font-family: DejaVu Sans;font-size: 13px">
-                            {{ number_format(floatval($invoice['giaCa']), 0, ',', '.') }}VNĐ</td>
+                            {{ number_format(floatval($giaCa), 0, ',', '.') }}VNĐ</td>
                     </tr>
                 </tbody>
             </table>

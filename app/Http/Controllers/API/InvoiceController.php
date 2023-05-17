@@ -11,19 +11,16 @@ class InvoiceController extends Controller
     public function exportPDF($id)
     {
         $invoiceBill = Bill::find($id);
-        $myCourse = $invoiceBill->myCourse ?? null;
-        $tenKhoaHoc = $myCourse ? $myCourse->tenKhoaHoc : 'N/A';
-        $giaCa = $myCourse ? $myCourse->giaCa : 'N/A';
 
-        $invoice = [
+        //Hàm optional được sử dụng để tránh gọi các thuộc tính trên một đối tượng null.
+        $myCourse = optional($invoiceBill->myCourse);
+
+        $data = [
             'invoice' => $invoiceBill,
-            'tenKhoaHoc' => $tenKhoaHoc,
-            'giaCa' => $giaCa,
+            'tenKhoaHoc' => $myCourse->tenKhoaHoc ?? 'N/A',
+            'giaCa' => $myCourse->giaCa ?? 'N/A',
         ];
 
-        $data = ['invoice' => $invoice];
-        $pdf = PDF::loadView('Invoices.invoice', $data);
-
-        return $pdf->download('hoaDon-' . $invoiceBill->maHoaDon . '.pdf');
+        return PDF::loadView('Invoices.invoice', $data)->download('hoaDon-' . $invoiceBill->maHoaDon . '.pdf');
     }
 }

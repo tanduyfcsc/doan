@@ -103,4 +103,17 @@ class ChapterController extends Controller
         return response()->json(['message' => 'Cập nhật chương học thành công', 'data' => $chapter->fresh()], 200);
     }
 
+    public function deleteChapterTeacher($id)
+    {
+        $deleteChapter = Chapter::findOrFail($id);
+
+        if ($deleteChapter && $deleteChapter->user_id == $this->userId->returnUserId()) {
+            $deleteChapter->delete();
+            return response()->json(['message' => 'Xóa chương học thành công'], 200);
+        }
+
+        return response()->json(['error' => 'Bạn không có quyền xóa'], 422);
+
+    }
+
 }
