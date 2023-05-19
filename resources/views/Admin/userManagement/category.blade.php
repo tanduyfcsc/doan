@@ -20,7 +20,7 @@
     <script>
         function resetPassword() {
             const email = document.querySelector('#email').value;
-            fetch('http://127.0.0.1:8000/api/reset/password', {
+            fetch('https://doan-production-0b9f.up.railway.app/api/reset/password', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
