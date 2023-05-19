@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Admin\AddUserController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\OderController;
 use App\Http\Controllers\Admin\RevenueStatisticsController;
-use App\Models\Comment;
+use App\Models\Bill;
 use App\Models\MyCourse;
 use Illuminate\Support\Facades\Route;
 
@@ -69,6 +70,8 @@ Route::middleware('adminLogin')->group(function () {
         Route::post('add/User', [AddUserController::class, 'addUser'])->name('add-User');
         Route::get('revenue/statistics/teacher', [RevenueStatisticsController::class, 'RevenueStatisticsTeacher'])->name('RevenueStatisticsTeacher');
 
+        Route::get('quan-li-don-hang', [OderController::class, 'oderManagement'])->name('oder-management');
+
     });
 
     Route::get('logout', [AdminLoginController::class, 'logout'])->name('logout-admin');
@@ -87,26 +90,15 @@ Route::get('category', function () {
     return view('Admin.userManagement.category');
 });
 
-Route::get('/update/user', function () {
-    return view('Admin.userManagement.update');
+Route::get('/update/user/{token}', function () {
+    return view('Admin.userManagement.category');
 });
 
 Route::get('/update/chapters', function () {
-    // $course = Course::with(['chapters' => function ($query) {
-    //     $query->select(['id', 'tenChuongHoc', 'course_id', 'user_id'])
-    //         ->with('lessons');
-    // }])->findOrFail(1);
-
-    // $course->instructor;
-    // return response()->json(['data' => $course]);
-    // 20230506005248
-    // http://127.0.0.1:8000/update/chapters
-
-    $reply = Comment::find(1);
-    $comments = $reply->replies;
-
-    return response()->json(['data' => $comments]);
-
+    $invoiceBills = Bill::join('my_courses', 'my_courses.id', '=', 'bills.my_course_id')
+        ->orderBy('bills.id', 'DESC')
+        ->get(['bills.*', 'my_courses.tenKhoaHoc', 'my_courses.giaCa', 'my_courses.trangThai', 'my_courses.ngayMua']);
+    return $invoiceBills;
 });
 
 Route::get('course', function () {

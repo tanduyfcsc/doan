@@ -12,25 +12,25 @@
     <h1>Đăng video mới</h1>
     <form>
         <div>
-            <label for="email">Email:</label>
-            <input type="text" name="email" id="email">
+            <label for="password">Mật khẩu mới:</label>
+            <input type="password" name="password" id="password">
         </div>
         <button type="button" onclick="resetPassword()">Đăng</button>
     </form>
     <script>
         function resetPassword() {
-            const email = document.querySelector('#email').value;
-            fetch('http://127.0.0.1:8000/api/reset/password', {
+            const password = document.querySelector('#password').value;
+            fetch('http://127.0.0.1:8000/api/update/password', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        email: email
+                        password: password,
                     })
                 })
-                .then(response => response.json())
-                .then(data => console.log(data))
+                .then(response => response.text())
+                .then(data => console.log(JSON.parse(data)))
                 .catch(error => console.error(error));
         }
     </script>

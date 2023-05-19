@@ -177,6 +177,7 @@
                         <td style="font-family: DejaVu Sans;font-size: 13px">1</td>
                         <td style="font-family: DejaVu Sans;font-size: 13px">
                             {{ number_format(floatval($giaCa), 0, ',', '.') }}VNĐ</td>
+
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right" style="font-family: DejaVu Sans;font-size: 13px">Phí vẫn

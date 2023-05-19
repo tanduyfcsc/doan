@@ -8,6 +8,7 @@ use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\LessonController;
 use App\Http\Controllers\API\LoginRegisterController;
 use App\Http\Controllers\API\PayBillController;
+use App\Http\Controllers\API\ResetPasswordController;
 use App\Http\Controllers\API\SearchController;
 use App\Http\Controllers\API\TeachersController;
 use Google\Client as GoogleClient;
@@ -51,9 +52,12 @@ Route::middleware('cors')->group(function () {
         Route::get('delete/{id}/lesson', [LessonController::class, 'deleteLesson'])->name('deleteLesson');
 
     });
+
     Route::get('invoice/{id}/export-pdf', [InvoiceController::class, 'exportPDF'])->name('exportPDF');
 
     Route::get('get/{id}/chapter', [ChapterController::class, 'getChapter'])->name('getChapter');
+
+    Route::post('reset/password', [ResetPasswordController::class, 'resetPassword'])->name('resetPassword');
 
     Route::get('get/{id}/chapter/detail', [ChapterController::class, 'getChapterDetail'])->name('getChapterDetail');
 

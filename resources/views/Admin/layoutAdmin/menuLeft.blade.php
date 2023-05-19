@@ -50,21 +50,16 @@
         </li>
 
         <li class="sidenav-divider mb-1"></li>
-        <li class="sidenav-header small font-weight-semibold">Forms & Tables</li>
+        <li class="sidenav-header small font-weight-semibold">Đơn hàng</li>
         <li class="sidenav-item">
             <a href="javascript:" class="sidenav-link sidenav-toggle">
                 <i class="sidenav-icon feather icon-clipboard"></i>
-                <div>Forms</div>
+                <div>Đơn hàng</div>
             </a>
             <ul class="sidenav-menu">
                 <li class="sidenav-item">
-                    <a href="forms_layouts.html" class="sidenav-link">
-                        <div>Layouts and elements</div>
-                    </a>
-                </li>
-                <li class="sidenav-item">
-                    <a href="forms_input-groups.html" class="sidenav-link">
-                        <div>Input groups</div>
+                    <a href="{{ route('oder-management') }}" class="sidenav-link">
+                        <div>Quản lí đơn hàng</div>
                     </a>
                 </li>
             </ul>
